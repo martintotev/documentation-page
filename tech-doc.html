@@ -65,7 +65,366 @@
             </a>
         </ul>
     </nav>
-<main id="main-doc">
+    <main id="main-doc=">
+        <section class="main-section" id="introduction-to-css">
+            <header>Introduction to CSS</header>
+            <article>
+                <p>
+                    CSS (Cascading Style Sheets) is used to style and lay out web pages — for example, to alter the
+                    font, colour, size and spacing of your content, split it into multiple columns, or add animations
+                    and other decorative features. This module gets you started on the path to CSS mastery with the
+                    basics of how it works, including selectors and properties, writing CSS rules, applying CSS to
+                    HTML, how to specify length, colour, and other units in CSS, cascade and inheritance, and debugging
+                    CSS.
+                </p>
+                <p>Before starting this module, you should have:</p>
+                <ol>
+                    <li>
+                        Basic familiarity with using computers, and using the Web passively (i.e. just looking at it,
+                        consuming the content.)
+                    </li>
+                    <li>
+                        A basic work environment set up as detailed in Installing basic software, and an understanding
+                        of how to create and
+                        manage files, as detailed in Dealing with files.
+                    </li>
+                    <li>
+                        Basic familiarity with HTML, as discussed in the Introduction to HTML module.
+                    </li>
+                </ol>
+            </article>
+        </section>
+        <section class="main-section" id="how-css-works">
+            <header>How CSS works</header>
+            <article>
+                <p>
+                    CSS (Cascading Style Sheets) allows you to create great looking web pages, but how does it work
+                    under the hood? This
+                    article explains what CSS is, how the browser turns HTML into a Document Object Model (DOM), how
+                    CSS is applied to
+                    parts of the DOM, some very basic syntax examples, and what code is used to actually include our
+                    CSS in our web page.
+                </p>
+                <h2>What is CSS?</h2>
+                <p>
+                    As we have mentioned before, CSS is a language for specifying how documents are presented to users
+                    —
+                    how they are
+                    styled, laid out, etc.
 
-</main>
+                    A document is usually a text file structured using a markup language — HTML is the most common
+                    markup language, but you
+                    will also come across other markup languages such as SVG or XML.
+
+                    Presenting a document to a user means converting it into a usable form for your audience. Browsers,
+                    like Firefox,
+                    Chrome or Internet Explorer, are designed to present documents visually, for example, on a computer
+                    screen, projector
+                    or printer.
+                </p>
+                <h2>How does CSS affect HTML?</h2>
+                <p>
+                    Web browsers apply CSS rules to a document to affect how they are displayed. A CSS rule is formed
+                    from:
+                </p>
+                <ul>
+                    <li>
+                        A set of properties, which have values set to update how the HTML content is displayed, for
+                        example I want my element's
+                        width to be 50% of its parent element, and its background to be red.
+                    </li>
+                    <li>
+                        A selector, which selects the element(s) you want to apply the updated property values to. For
+                        example, I want to apply
+                        my CSS rule to all the paragraphs in my HTML document.
+                    </li>
+                </ul>
+                <p>
+                    A set of CSS rules contained within a stylesheet determines how a webpage should look. You will
+                    learn a lot more
+                    about
+                    what CSS syntax looks like in the next article of the module — CSS Syntax.
+                </p>
+                <h2>A quick CSS example</h2>
+                <p>The above descriptions may or may not have made sense, so let's make sure things are clear by
+                    presenting a quick
+                    example. First of all, let's take a simple HTML document, containing an <code>h1</code> and a <code>p</code>(notice
+                    that a stylesheet is applied to the HTML using a <code></code>link</code> element):</p>
+                <pre>
+                    <code>
+                        h1 {
+                        color: blue;
+                        background-color: yellow;
+                        border: 1px solid black;
+                        }
+
+                        p {
+                        color: red;
+                        }
+                    </code>
+                </pre>
+                <p>
+                    The first rule starts with an h1 selector, which means that it will apply its property values to
+                    the <code>h1</code> element. It contains three properties and their values (each property/value
+                    pair is called a <b>declaration</b>):
+                </p>
+                <ol>
+                    <li>The first one sets the text color to blue.</li>
+                    <li>The second sets the background color to yellow.</li>
+                    <li>The third one puts a border around the header that is 1 pixel wide, solid (not dotted, or
+                        dashed, etc.), and colored
+                        black.</li>
+                </ol>
+                <p>
+                    The second rule starts with a p selector, which means that it will apply its property values to the
+                    <code>p</code> element. It
+                    contains one declaration, which sets the text color to red.
+                </p>
+                <p>
+                    In a web browser, the code above would produce the following output:
+                </p>
+                <img src="https://mdn.mozillademos.org/files/12537/first-example.png" alt="css-example">
+                <p>
+                    This isn't too pretty, but at least it starts to give you an idea of how CSS works.
+                </p>
+            </article>
+        </section>
+        <section class="main-section" id="css-syntax">
+            <header>CSS syntax</header>
+            <article>
+                <h2>A touch of vocabulary</h2>
+                <p>At its most basic level, CSS consists of two building blocks:</p>
+                <ul>
+                    <li><b>Properties:</b> Human-readable identifiers that indicate which stylistic features (e.g.
+                        font, width, background color) you want to change.
+                    </li>
+                    <li>
+                        <b>Values:</b>Each specified property is given a value, which indicates how you want to change
+                        those stylistic features (e.g.
+                        what you want to change the font, width or background color to.)
+                    </li>
+                </ul>
+                <p>A property paired with a value is called a CSS declaration. CSS declarations are put within CSS
+                    Declaration Blocks. And
+                    finally, CSS declaration blocks are paired with selectors to produce <i>CSS Rulesets (or CSS Rules)</i>.</p>
+                <pre>
+                    <code>
+                        h1 {
+                        colour: blue;
+                        background-color: yellow;
+                        border: 1px solid black;
+                        }
+
+                        p {
+                        color: red;
+                        }
+
+                        p, li {
+                        text-decoration: underline;
+                        }
+                    </code>
+                </pre>
+                <h2>CSS declarations</h2>
+                <p>
+                    Setting CSS properties to specific values is the core function of the CSS language. The CSS engine
+                    calculates which
+                    declarations apply to every single element of a page in order to appropriately lay it out and style
+                    it. What is
+                    important to remember is that both properties and values are case-sensitive in CSS. The property
+                    and value in each pair
+                    is separated by a colon (<code>:</code>).
+                </p>
+                <img src="https://mdn.mozillademos.org/files/3665/css%20syntax%20-%20declaration.png" alt="css-declaration">
+                <p>There are more than 300 different properties in CSS and nearly an infinite number of different
+                    values. Not all pairs of
+                    properties and values are allowed; each property has a specific list of valid values defined for
+                    it.</p>
+            </article>
+        </section>
+        <section class="main-section" id="simple-selectors">
+            <header>Simple selectors</header>
+            <article>
+                <h2>Type selectors aka element selectors</h2>
+                <p>This selector is just a case-insensitive match between the selector name and a given HTML element
+                    name. This is the
+                    simplest way to target all elements of a given type. Let's take a look at an example:</p>
+                <p>A simple style sheet:</p>
+                <pre>
+                    <code>
+                        /* All p elements are red */
+                        p {
+                        color: red;
+                        }
+
+                        /* All div elements are blue */
+                        div {
+                        color: blue;
+                        }
+                    </code>
+                </pre>
+                <h2>Class seclectors</h2>
+                <p>
+                    The class selector consists of a dot, '.', followed by a class name. A class name is any value,
+                    without spaces, placed
+                    within an HTML class attribute. It is up to you to choose a name for the class. It is also
+                    noteworthy that multiple
+                    elements in a document can have the same class value, and a single element can have multiple class
+                    names separated by
+                    white space. Here's a quick example:
+                </p>
+                <pre>
+                    <code>
+                        /* The element with the class "first" is bolded */
+                        .first {
+                        font-weight: bold;
+                        }
+
+                        /* All the elements with the class "done" are strike through */
+                        .done {
+                        text-decoration: line-through;
+                        }
+                    </code>
+                </pre>
+                <h2>ID selector</h2>
+                <p>The ID selector consists of a hash/pound symbol (#), followed by the ID name of a given element. Any
+                    element can have a
+                    unique ID name set with the id attribute. It is up to you to choose an ID name. It's the most
+                    efficient way to select a
+                    single element.</p>
+                <pre>
+                    <code>
+                        #polite {
+                        font-family: cursive;
+                        }
+
+                        #rude {
+                        font-family: monospace;
+                        text-transform: uppercase;
+                        }
+                    </code>
+                </pre>
+                <h2>Universal selector</h2>
+                <p>The universal selector (*) is the ultimate joker. It allows selecting all elements in a page. As it
+                    is rarely used to
+                    apply a style to every element on a page, it is often used in combination with other selectors (see
+                    Combinators.)</p>
+                <pre>
+                    <code>
+                        * {
+                        padding: 5px;
+                        border: 1px solid black;
+                        background: rgba(255,0,0,0.25)
+                        }
+                    </code>
+                </pre>
+            </article>
+        </section>
+        <section class="main-section" id="attribute-selectors">
+            <header>Attribute selectors</header>
+            <article>
+                <h2>Presence and value attribute selectors</h2>
+                <p>These attribute selectors try to match an exact attribute value:</p>
+                <ul>
+                    <li><code>[attr]</code>: This selector will select all elements with the attribute <code>attr</code>,
+                        whatever its value.</li>
+                    <li><code>[attr=val]</code>: This selector will select all elements with the attribute <code>attr</code>,
+                        but only if its value is <code>val</code>.</li>
+                    <li><code>[attr~=val]</code>: This selector will select all elements with the attribute <code>attr</code>,
+                        but only if <code>val</code> is one of a space-separated list of
+                        words contained in <code>attr</code>'s value..</li>
+                </ul>
+                <pre>
+                    <code>
+                    /* Classic usage for language selection */
+                    [lang|="fr"] {
+                    font-weight: bold;
+                    }
+
+                    /* All elements with the attribute "data-quantity", for which
+                    the value starts with "optional" */
+                    [data-quantity^="optional"] {
+                    opacity: 0.5;
+                    }
+
+                    /* All elements with the attribute "data-quantity", for which
+                    the value ends with "kg" */
+                    [data-quantity$="kg"] {
+                    font-weight: bold;
+                    }
+
+                    /* All elements with the attribute "data-vegetable" containing
+                    the substring "not spicy" are turned back to green */
+                    [data-vegetable*="not spicy"] {
+                    color: green;
+                    }
+                    </code>
+                </pre>
+            </article>
+        </section>
+        <section class="main-section" id="values-units">
+            <header>CSS values and units</header>
+            <article>
+                <p>There are many value types in CSS, some of them very common and some of them that you'll rarely come
+                    across. We won't
+                    cover all of them exhaustively in this article; just the ones that you are likely to find most
+                    useful as you continue
+                    on your path towards mastering CSS. In this article we will cover the following CSS values:</p>
+                <ul>
+                    <li>Numeric values: Length values for specifying e.g. element width, border thickness, or font
+                        size, and unitless integers
+                        for specifying e.g. relative line width or number of times to run an animation.</li>
+                    <li>Percentages: Can also be used to specify size or length — relative to a parent container's
+                        width or height for example,
+                        or the default font-size.</li>
+                    <li>Colors: For specifying background colors, text colors, etc.</li>
+                    <li>Coordinate positions: e.g. for specifying the position of a positioned element relative to the
+                        top left of the screen.</li>
+                    <li>Functions: For specifying e.g. background images or background image gradients.</li>
+                </ul>
+                <p>You'll also see examples of such units in use all the way through the rest of the CSS topic, and
+                    just about every other
+                    CSS resource you see! You'll get used to it all in no time.</p>
+            </article>
+        </section>
+        <section class="main-section" id="styling-text-overiew">
+            <header>Styling text overview</header>
+            <article>
+                <p>With the basics of the CSS language covered, the next CSS topic for you to concentrate on is styling
+                    text — one of the most common things you'll do with CSS. Here we look at text styling fundamentals,
+                    including setting font, boldness, italics, line and letter spacing, drop shadows and other text
+                    features. We round off the module by looking at applying custom fonts to your page, and styling
+                    lists and links.</p>
+            </article>
+        </section>
+        <section class="main-section" id="styling-list">
+            <header>Styling lists</header>
+            <article>
+                <h2>A simple example</h2>
+                <p>To begin with, let's look at a simple list example. Throughout this article, we'll look at unordered, ordered, and description lists — all have styling features that are similar, and some that are particular to their type of list. The unstyled example is available on Github (check out the source code too.)</p>
+                <h2>Handling list spacing</h2>
+                <p>When styling lists, you need to adjust their styles so they keep the same vertical spacing as their surrounding elements (such as paragraphs and images; sometimes called vertical rhythm), and the same horizontal spacing as each other (you can see the finished styled example on Github, and find the source code too.)</p>
+                <ul>
+                    <li>The first rule sets a sitewide font and a baseline font size of 10px. These are inherited by everything on the page.</li>
+                    <li>Rules 2 and 3 set relative font sizes for the headings, different list types (the children of the list elements inherit these), and paragraphs. This means that each paragraph and list will have the same font size and top and bottom spacing, helping to keep the vertical rhythm consistent.</li>
+                    <li>Rule 4 sets the same line-height on the paragraphs and list items — so the paragraphs and each individual list item will have the same spacing between lines. This will also help to keep the vertical rhythm consistent.</li>
+                    <li>Rules 5 and 6 apply to the description list — we set the same line-height on the description list terms and descriptions as we did with the paragraphs and list items. Again, consistency is good! We also make the description terms have bold font, so they visually stand out easier.</li>
+                </ul>
+            </article>
+        </section>
+        <section class="main-section" id="styling-links">
+            <header>Styling links</header>
+            <article>
+                <h2>Let's look at some links</h2>
+                <p>We looked at how links are implemented in your HTML according to best practices in Creating hyperlinks. In this article we'll build on this knowledge, showing you best practices for styling links.</p>
+                <p>The first thing to understand is the concept of link states — different states that links can exist in, which can be styled using different pseudo-classes:</p>
+                <ul>
+                    <li><b>Link (unvisited)</b>: The default state that a link resides in, when it isn't in any other state. This can be specifically styled using the <code>:link</code> pseudo class.</li>
+                    <li><b>Visited</b>: A link when it has already been visited (exists in the browser's history), styled using the <code>:visited</code> pseudo class.</li>
+                    <li><b>Hover</b>: A link when it is being hovered over by a user's mouse pointer, styled using the <code>:hover</code> pseudo class.</li>
+                    <li><b>Focus</b>: A link when it has been focused (for example moved to by a keyboard user using the <kbd>Tab</kbd> key or similar, or programmatically focused using <code>HTMLElement.focus()</code>) — this is styled using the <code>:focus</code> pseudo class.</li>
+                    <li><b>Active</b>: A link when it is being activated (e.g. clicked on), styled using the :active pseudo class.</li>
+                </ul>
+            </article>
+        </section>
+    </main>
 </body>
