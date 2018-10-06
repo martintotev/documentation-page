@@ -4,6 +4,7 @@ font-family: 'Ubuntu', sans-serif; - Titles - 500, 700
 font-family: 'Source Sans Pro', sans-serif; - Body - 300
 */
 
-* {
-
+html, body {
+    min-width: 290px;
+    
 }
