@@ -4,7 +4,148 @@ font-family: 'Ubuntu', sans-serif; - Titles - 500, 700
 font-family: 'Source Sans Pro', sans-serif; - Body - 300
 */
 
+@import '/open-color.css';
+
 html, body {
-    min-width: 290px;
+    min-width: 250px;
+    background-color: var(--oc-gray-1);
+    color: var(--oc-gray-9);
+    font-family: 'Soruce Sans Pro', sans-serif;
+    font-weight: 300;
+    line-height: 1.4;
+}
+
+#navbar {
+    background-color: var(--oc-gray-1);
+    position: fixed;
+    /* min-width: 250px; */
+    top: 0px;
+    left: 0px;
+    width: 280px;
+    height: 100%;
+    border-right: solid;
+    border-color: var(--oc-gray-4);
+    z-index: 1;
+}
+
+header {
+    color: var(--oc-gray-9);
+    font-size: 2em;
+    margin: 10pt;
+    text-align: center;
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 700;
+}
+
+#main-doc header{
+    text-align: left;
+    margin: 0pt;
+    z-index: 0;
+}
+
+#navbar ul{
+    height: 90%;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#navbar li{
+    font-family: 'Ubuntu', sans-serif;
+    font-weight: 500;
+    color: var(--oc-gray-7);
+    /* border: 1px solid; */
+    border-bottom-width: 0px;
+    padding: 8px;
+    padding-left: 50px;
+    list-style: none;
+    position: relative;
+    left: -55px;
+    width: 100%;
     
+}
+
+#navbar li:hover {
+    background-color: var(--oc-gray-2);
+}
+
+#navbar li:active {
+    background-color: var(--oc-gray-0);
+}
+
+#navbar a{
+    color: var(--oc-gray-7);
+    text-decoration: none;
+    cursor: pointer;
+}
+
+#main-doc {
+    position: absolute;
+    margin-left: 300px;
+    padding: 12pt;
+    margin-bottom: 110px;
+    max-width: 920px;
+}
+
+section article{
+    color: var(--oc-gray-9);
+    margin: 30px 0px 0px 30px;
+    font-size: 0.95em;
+}
+
+section li{
+    margin: 10px 0px 0px 20px;
+}
+
+code {
+    font-family: 'Share Tech Mono', monospace;
+    font-weight: 400;
+    display: block;
+    text-align: left;
+    white-space: pre;
+    position: relative;
+    word-break: normal;
+    word-wrap: normal;
+    line-height: 2;
+    background-color: var(--oc-gray-0);
+    padding: 15px;
+    margin: 10px;
+    border-radius: 10px;
+}
+
+@media only screen and (max-width: 920px) {
+    /* Mobiles */
+    #navbar ul{
+        border: 1px solid;
+        height: 200px;
+    }
+
+    #navbar {
+        background-color: var(--oc-gray-1);
+        position: absolute;
+        top: 0;
+        padding: 0;
+        margin: 0;
+        width: 100%;
+        max-height: 300px;
+        border: none;
+        z-index: 1;
+        /* border-bottom: 1px solid; */
+    }
+
+    #main-doc {
+        position: relative;
+        margin-left: 0px;
+        margin-top: 300px;
+    }
+}
+
+@media only screen and (max-width: 400px){
+    #main-doc{
+        margin-left: -20px;
+        width: 100%;
+        padding: 15px;
+        padding-left: 10px;
+        padding-right: 45px;
+        min-width: 233px;
+    }
 }
